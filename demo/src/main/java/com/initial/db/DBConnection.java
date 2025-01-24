@@ -1,13 +1,12 @@
-package com.initial;
+package com.initial.db;
 
-package com.yourpackage.db;
-
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Properties;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.util.Properties;
-import java.io.InputStream;
-import java.io.IOException;
 
 public class DBConnection {
     private static DBConnection instance;
@@ -16,27 +15,31 @@ public class DBConnection {
     // Private constructor to prevent instantiation
     private DBConnection() {
         try {
-            // Load properties from db.properties file
-            Properties properties = new Properties();
-            InputStream inputStream = getClass().getClassLoader().getResourceAsStream("db.properties");
-            if (inputStream != null) {
-                properties.load(inputStream);
-            }
+            // Use absolute path to load db.properties
+            String propertiesFilePath = "demo\\src\\main\\ressources\\db.properties";
+            FileInputStream inputStream = new FileInputStream(propertiesFilePath);
 
-            // Establish the connection to the database
+            Properties properties = new Properties();
+            properties.load(inputStream);
+
             String url = properties.getProperty("db.url");
             String username = properties.getProperty("db.username");
             String password = properties.getProperty("db.password");
             String driverClassName = properties.getProperty("db.driverClassName");
 
+            if (url == null || username == null || password == null || driverClassName == null) {
+                throw new RuntimeException("Missing database properties in db.properties.");
+            }
+
             // Register the JDBC driver
             Class.forName(driverClassName);
 
-            // Create connection
+            // Establish the connection
             this.connection = DriverManager.getConnection(url, username, password);
-
+            System.out.println("Database connection established successfully.");
         } catch (IOException | ClassNotFoundException | SQLException e) {
             e.printStackTrace();
+            throw new RuntimeException("Failed to initialize DBConnection.", e);
         }
     }
 
@@ -55,16 +58,5 @@ public class DBConnection {
     // Method to get connection
     public Connection getConnection() {
         return this.connection;
-    }
-
-    // Method to close connection (optional)
-    public void closeConnection() {
-        try {
-            if (this.connection != null) {
-                this.connection.close();
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
     }
 }
