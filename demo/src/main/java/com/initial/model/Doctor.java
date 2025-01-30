@@ -2,27 +2,36 @@ package com.initial.model;
 
 public class Doctor {
     private Long id;
-    private String username;
     private String password;
     private String email;
     private String firstName;
     private String lastName;
     private String specialization;
-    private Long departmentId; // FK to Department
+    private int departmentId; // FK to Department
+    public Doctor(String password, String email, String firstName, String lastName, String specialization, int departmentId) {
+        this.password = password;
+        this.email = email;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.specialization = specialization;
+        this.departmentId = departmentId;
+    }
+    public Doctor(){}
     public Long getId() {
         return id;
     }
     public void setId(Long id) {
         this.id = id;
     }
-    public String getUsername() {
-        return username;
-    }
-    public void setUsername(String username) {
-        this.username = username;
-    }
+
     public String getPassword() {
         return password;
+    }
+    @Override
+    public String toString() {
+        return "Doctor [id=" + id + ", password=" + password + ", email=" + email + ", firstName=" + firstName
+                + ", lastName=" + lastName + ", specialization=" + specialization + ", departmentId=" + departmentId
+                + "]";
     }
     public void setPassword(String password) {
         this.password = password;
@@ -51,10 +60,10 @@ public class Doctor {
     public void setSpecialization(String specialization) {
         this.specialization = specialization;
     }
-    public Long getDepartmentId() {
+    public int getDepartmentId() {
         return departmentId;
     }
-    public void setDepartmentId(Long departmentId) {
+    public void setDepartmentId(int departmentId) {
         this.departmentId = departmentId;
     }
 

@@ -16,7 +16,7 @@ public class DBConnection {
     private DBConnection() {
         try {
             // Use absolute path to load db.properties
-            String propertiesFilePath = "demo\\src\\main\\ressources\\db.properties";
+            String propertiesFilePath = "demo/src/main/ressources/db.properties";
             FileInputStream inputStream = new FileInputStream(propertiesFilePath);
 
             Properties properties = new Properties();

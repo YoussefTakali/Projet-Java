@@ -4,48 +4,68 @@ import com.initial.controller.DoctorController;
 import com.initial.model.Appointment;
 import com.initial.model.AppointmentStatus;
 import com.initial.model.Doctor;
+import com.initial.model.Patient;
+
 import java.util.Date;
+import java.util.List;
 
 import com.initial.service.AppointmentService;
+import com.initial.service.DoctorService;
+import com.initial.service.PatientService;
 public class Main {
     public static void main(String[] args) {
-        DoctorController doctorController = new DoctorController();
 
-        Doctor newDoctor = new Doctor();
-        newDoctor.setUsername("dr_jane");
-        newDoctor.setPassword("password123");
-        newDoctor.setEmail("dr.jane@example.com");
-        newDoctor.setFirstName("Jane");
-        newDoctor.setLastName("Smith");
-        newDoctor.setSpecialization("Neurologist");
-        newDoctor.setDepartmentId(1L);  // Assuming department ID is 1
-
+        PatientService patientService = new PatientService();
         AppointmentService appointmentService = new AppointmentService();
+        Doctor doctor = new Doctor();
+        doctor.setPassword("doctor123");
+        doctor.setEmail("doctor@example.com");
+        doctor.setFirstName("John");
+        doctor.setLastName("Doe");
+        doctor.setSpecialization("Cardiology");
+        doctor.setDepartmentId(1); // Assuming department_id 1 corresponds to a valid department
 
-        // Test: Add a new appointment
-        Appointment newAppointment = new Appointment(0, new Date(), AppointmentStatus.SCHEDULED.toString(), 1, 1); // 1 for doctor_id and patient_id
+        // Create an instance of DoctorService to access the addDoctor method
+        DoctorService doctorService = new DoctorService();
+
+        // Call addDoctor to insert the doctor into the database
+        doctorService.addDoctor(doctor);
+        
+        System.out.println("Doctor added successfully!");
+
+        Patient newPatient = new Patient();
+        newPatient.setPassword("mypassword");
+        newPatient.setEmail("youssef@example.com");
+        newPatient.setFirstName("Mike");
+        newPatient.setLastName("Smith");
+        newPatient.setAddress("Roued");
+        newPatient.setPhoneNumber("123456789");
+
+        patientService.addPatient(newPatient);
+        System.out.println("Patient added successfully!");
+
+        
+        Appointment newAppointment = new Appointment(0, new Date(), AppointmentStatus.SCHEDULED.toString(), 19, 5); // 1 for doctor_id and patient_id
         boolean added = appointmentService.addAppointment(newAppointment);
         if (added) {
             System.out.println("Appointment added successfully.");
         }
 
-        // Test: Get the status of the appointment
-        Appointment fetchedAppointment = appointmentService.getAppointment(1); // Assuming the appointment ID is 1
-        if (fetchedAppointment != null) {
-            System.out.println("Fetched Appointment Status: " + fetchedAppointment.getStatus());
+        List<Appointment> appointments = appointmentService.getAppointmentsByDoctorId(18);
+        System.out.println("All Appointments:");
+        for (Appointment app : appointments) {
+            System.out.println(app);
+        }
+        List<Appointment> appointments2 = appointmentService.getAppointmentsByPatientId(5);
+        System.out.println("All Appointments:");
+        for (Appointment app : appointments2) {
+            System.out.println(app);
         }
 
-        // Test: Cancel an appointment
-        appointmentService.cancelAppointment(1); // Assuming the appointment ID is 1
 
-        // Test: Reschedule an appointment
-        boolean rescheduled = appointmentService.rescheduleAppointment(1, new Date()); // Reschedule with a new date
-        if (rescheduled) {
-            System.out.println("Appointment has been rescheduled.");
-        }
+        System.out.println(patientService.loginPatient("youssef@example.com", "mypassword"));
 
-        // Test: Get the status again after cancellation
-        AppointmentStatus status = appointmentService.getAppointmentStatus(1); // Assuming the appointment ID is 1
-        System.out.println("Appointment status after update: " + status);
-        }
+        System.out.println(doctorService.loginDoctor("dr.jane@example.com", "password123"));
+    
+     }
 }

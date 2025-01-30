@@ -1,5 +1,8 @@
 package com.initial.controller;
 import com.initial.service.DoctorService;
+
+import java.util.List;
+
 import com.initial.model.Doctor;
 
 public class DoctorController {
@@ -13,5 +16,11 @@ public class DoctorController {
         doctorService.addDoctor(doctor);
     }
 
-    // Other controller methods for Doctor
+    public List<Doctor> getAllDoctors() {
+        return doctorService.getAllDoctors();
+    }
+
+    public Doctor getDoctorById(Long id) {
+        return doctorService.getDoctorById(id);
+    }
 }

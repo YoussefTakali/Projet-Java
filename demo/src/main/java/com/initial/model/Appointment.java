@@ -58,4 +58,15 @@ public class Appointment {
     public void setPatientId(long patientId) {
         this.patientId = patientId;
     }
+    @Override
+    public String toString() {
+        return "Appointment{" +
+                "id=" + id +
+                ", dateTime=" + dateTime +
+                ", status='" + status + '\'' +
+                ", doctorId=" + doctorId +
+                ", patientId=" + patientId +
+                '}';
+    }
+
 }

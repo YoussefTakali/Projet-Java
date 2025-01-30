@@ -1,10 +1,9 @@
 package com.initial.controller;
-
 import com.initial.model.Appointment;
 import com.initial.model.AppointmentStatus;
 import com.initial.service.AppointmentService;
-
 import java.util.Date;
+import java.util.List;
 
 public class AppointmentController {
 
@@ -17,12 +16,12 @@ public class AppointmentController {
 
     // Method to cancel an appointment
     public void cancelAppointment(int appointmentId) {
-        appointmentService.cancelAppointment(appointmentId, AppointmentStatus.CANCELED.toString());
+        appointmentService.cancelAppointment(appointmentId);
     }
 
     // Method to reschedule an appointment
     public boolean rescheduleAppointment(int appointmentId, Date newDate) {
-        return appointmentService.rescheduleAppointment(appointmentId, newDate, AppointmentStatus.RESCHEDULED.toString());
+        return appointmentService.rescheduleAppointment(appointmentId, newDate);
     }
 
     // Method to get the status of an appointment
@@ -44,4 +43,12 @@ public class AppointmentController {
     public Appointment getAppointment(int appointmentId) {
         return appointmentService.getAppointment(appointmentId);
     }
+    public List<Appointment> getAppointmentsByPatientId(long patientId) {
+        return appointmentService.getAppointmentsByPatientId(patientId);
+    }
+
+    public List<Appointment> getAppointmentsByDoctorId(long doctorId) {
+        return appointmentService.getAppointmentsByDoctorId(doctorId);
+    }
+
 }
