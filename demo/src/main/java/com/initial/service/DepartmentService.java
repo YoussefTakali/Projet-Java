@@ -11,7 +11,7 @@ public class DepartmentService {
     public DepartmentService(Connection connection) {
         this.connection = connection;
     }
-
+    public DepartmentService(){}
     // ✅ Add a new department
     public void addDepartment(Department department) {
         String sql = "INSERT INTO department (name, description) VALUES (?, ?)";
