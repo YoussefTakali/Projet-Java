@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.image.ImageView?>
+
+
+<AnchorPane xmlns="http://javafx.com/javafx/17" 
+            xmlns:fx="http://javafx.com/fxml/1" 
+            fx:controller="com.initial.controller.PatientSignupController"
+            stylesheets="@signUp.css">
+    
+    <GridPane prefWidth="800" prefHeight="600" style="-fx-background-color: #f0f2f5;">
+        <columnConstraints>
+            <ColumnConstraints percentWidth="50"/>
+            <ColumnConstraints percentWidth="50"/>
+        </columnConstraints>
+
+        <!-- Left Side: Form -->
+        <StackPane GridPane.columnIndex="0">
+            <VBox alignment="CENTER" spacing="25" prefWidth="300">
+                <Label text="Create Account" styleClass="title-label"/>
+                
+                <GridPane hgap="15" vgap="15" prefWidth="300">
+                    <columnConstraints>
+                        <ColumnConstraints prefWidth="300"/>
+                    </columnConstraints>
+
+                    <TextField fx:id="firstNameField" promptText="First Name" styleClass="form-field"/>
+                    <TextField fx:id="lastNameField" promptText="Last Name" styleClass="form-field" GridPane.rowIndex="1"/>
+                    <TextField fx:id="emailField" promptText="Email" styleClass="form-field" GridPane.rowIndex="2"/>
+                    <TextField fx:id="phoneField" promptText="Phone Number" styleClass="form-field" GridPane.rowIndex="3"/>
+                    <PasswordField fx:id="passwordField" promptText="Password" styleClass="form-field" GridPane.rowIndex="4"/>
+                    <TextField fx:id="addressField" promptText="Address" styleClass="form-field" GridPane.rowIndex="5"/>
+                </GridPane>
+
+                <Button text="Create Account" onAction="#handleSignUp" styleClass="signup-button"/>
+
+                <HBox spacing="10" alignment="CENTER">
+                    <Label text="Already have an account?" styleClass="footer-text"/>
+                    <Hyperlink text="Login" onAction="#navigateToLogin" styleClass="login-link"/>
+                </HBox>
+                
+                
+            </VBox>
+        </StackPane>
+
+        <!-- Right Side: Image -->
+         <StackPane GridPane.columnIndex="1" style="-fx-background-color: #2a2a72;">
+            <ImageView fx:id="imageView" fitWidth="-1" fitHeight="-1" preserveRatio="false" pickOnBounds="true" StackPane.alignment="CENTER"/>
+
+            <VBox alignment="BOTTOM_LEFT" spacing="20" style="-fx-padding: 40;">
+                <Label text="Patient Management System" styleClass="image-title"/>
+                <Label text="Your Health, Our Priority" styleClass="image-subtitle"/>
+            </VBox>
+        </StackPane>
+    </GridPane>
+</AnchorPane>

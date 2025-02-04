@@ -1,0 +1,49 @@
+/* Add these to your existing login.css */
+
+.form-field {
+    -fx-pref-height: 40px;
+    -fx-pref-width: 300px;
+    -fx-font-size: 14px;
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+    -fx-border-color: #ddd;
+    -fx-border-width: 1px;
+    -fx-padding: 0 12px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.02), 2, 0, 0, 1);
+}
+
+.form-field:focused {
+    -fx-border-color: #2a2a72;
+    -fx-effect: dropshadow(gaussian, rgba(42,42,114,0.15), 4, 0, 0, 2);
+}
+
+.signup-button {
+    -fx-pref-width: 300px;
+    -fx-pref-height: 45px;
+    -fx-background-color: #28a745;
+    -fx-text-fill: white;
+    -fx-font-weight: 700;
+    -fx-background-radius: 5px;
+    -fx-cursor: hand;
+    -fx-font-size: 15px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 4, 0, 0, 2);
+    -fx-transition: background-color 0.3s;
+}
+
+.signup-button:hover {
+    -fx-background-color: #218838;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.12), 6, 0, 0, 3);
+}
+VBox {
+    -fx-padding: 0 60px; /* Adds left and right margin */
+}
+.login-link {
+    -fx-text-fill: #2a2a72;
+    -fx-font-weight: 700;
+    -fx-border-color: transparent;
+    -fx-underline: true;
+}
+
+.login-link:hover {
+    -fx-text-fill: #3a3a82;
+}

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.initial.controller.DepartmentController"
+      spacing="15" alignment="TOP_CENTER" stylesheets="@departments.css">
+      
+    <Label text="Our Departments" styleClass="title-label"/>
+
+    <ScrollPane fitToWidth="true" fitToHeight="true">
+        <VBox fx:id="departmentsContainer" spacing="10" alignment="CENTER"/>
+    </ScrollPane>
+    
+</VBox>

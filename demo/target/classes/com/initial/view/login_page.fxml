@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:controller="com.initial.controller.LoginController"
+           xmlns="http://javafx.com/javafx/17"
+           xmlns:fx="http://javafx.com/fxml/1"
+           stylesheets="@login.css">
+    
+    <GridPane prefWidth="800" prefHeight="600" style="-fx-background-color: #f0f2f5;">
+        <columnConstraints>
+            <ColumnConstraints percentWidth="50" />
+            <ColumnConstraints percentWidth="50" />
+        </columnConstraints>
+
+        <!-- Left Side: Login Form -->
+        <StackPane GridPane.columnIndex="0">
+            <VBox alignment="CENTER" spacing="20" prefWidth="300">
+                <Label text="Welcome Back!" styleClass="title-label"/>
+                            
+                 <VBox spacing="10" prefWidth="300" alignment="CENTER">
+                <Label text="Username" styleClass="input-label"/>
+                <TextField fx:id="usernameField" promptText="Enter your username" prefWidth="300"/>
+
+                <Label text="Password" styleClass="input-label"/>
+                <PasswordField fx:id="passwordField" promptText="Enter your password" prefWidth="300"/>
+
+                <Button text="Sign In" onAction="#handleLogin" styleClass="login-button" prefWidth="300"/>
+                <HBox spacing="10" alignment="CENTER">
+                    <Label text="Don't have an account?" styleClass="footer-text"/>
+                    <Hyperlink fx:id="signupLink" text="Sign Up" onAction="#navigateToSignUp" styleClass="signup-link"/>
+                </HBox>
+
+            </VBox>
+
+            </VBox>
+        </StackPane>
+
+        <!-- Right Side: Image Section -->
+       <StackPane GridPane.columnIndex="1" style="-fx-background-color: #2a2a72;">
+            <ImageView fx:id="imageView" fitWidth="-1" fitHeight="-1" preserveRatio="false" pickOnBounds="true" StackPane.alignment="CENTER"/>
+
+            <VBox alignment="BOTTOM_LEFT" spacing="20" style="-fx-padding: 40;">
+                <Label text="Patient Management System" styleClass="image-title"/>
+                <Label text="Your Health, Our Priority" styleClass="image-subtitle"/>
+            </VBox>
+        </StackPane>
+
+    </GridPane>
+</AnchorPane>
