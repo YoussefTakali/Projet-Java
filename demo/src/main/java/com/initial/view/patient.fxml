@@ -1,17 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.Font?>
+<?import javafx.geometry.Insets?>
 
-<VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="com.initial.controller.DepartmentController"
-      spacing="15" alignment="TOP_CENTER" stylesheets="@departments.css">
-      
-    <Label text="Our Departments" styleClass="title-label"/>
+<VBox xmlns="http://javafx.com/javafx/17" 
+      xmlns:fx="http://javafx.com/fxml/1" 
+      fx:controller="com.initial.controller.DepartmentListController"
+      stylesheets="@patient.css">
 
-    <ScrollPane fitToWidth="true" fitToHeight="true">
-        <VBox fx:id="departmentsContainer" spacing="10" alignment="CENTER"/>
+    <!-- Navigation Bar -->
+    <HBox styleClass="navbar">
+        <Button text="Hospital Departments" styleClass="navbar-brand" onAction="#navigateTodepartemnt"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button text="About Us" onAction="#navigateToAboutUs" styleClass="nav-button"/>
+        <Button text="My Appointments" onAction="#navigateToAppointments" styleClass="nav-button"/>
+    </HBox>
+
+    <!-- Departments Container -->
+    <ScrollPane fitToWidth="true" styleClass="content-area">
+        <FlowPane fx:id="departmentsContainer" 
+                  hgap="20" 
+                  vgap="20" 
+                  prefWrapLength="900">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+        </FlowPane>
     </ScrollPane>
-    
 </VBox>

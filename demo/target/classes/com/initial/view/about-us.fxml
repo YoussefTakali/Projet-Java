@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.image.ImageView?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.initial.controller.DepartmentListController"
+            stylesheets="@about_us.css">
+
+    <!-- Background -->
+    <StackPane prefWidth="800" prefHeight="600" styleClass="root">
+        
+        <!-- Navbar -->
+        <HBox styleClass="navbar">
+            <Button text="Hospital Departments" styleClass="navbar-brand" onAction="#navigateTodepartemnt"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button text="About Us" onAction="#navigateToAboutUs" styleClass="nav-button"/>
+            <Button text="My Appointments" onAction="#navigateToAppointments" styleClass="nav-button"/>
+        </HBox>
+
+        <!-- Content -->
+        <VBox alignment="CENTER" spacing="20" styleClass="content-area">
+            <Label text="Welcome to Our Hospital" styleClass="title"/>
+            <Label text="Providing excellent healthcare services with state-of-the-art technology."
+                   wrapText="true" styleClass="description"/>
+            <Button text="Schedule Appointment" styleClass="appointment-button"
+                    onAction="#navigateTodepartemnt"/>
+        </VBox>
+
+    </StackPane>
+
+</AnchorPane>

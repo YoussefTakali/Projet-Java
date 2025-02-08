@@ -1,5 +1,6 @@
 package com.initial.service;
 
+import com.initial.db.DBConnection;
 import com.initial.model.Department;
 import java.sql.*;
 import java.util.ArrayList;
@@ -8,10 +9,10 @@ import java.util.List;
 public class DepartmentService {
     private Connection connection;
 
-    public DepartmentService(Connection connection) {
-        this.connection = connection;
+    public DepartmentService() {
+        this.connection = DBConnection.getInstance().getConnection();
     }
-    public DepartmentService(){}
+
     // ✅ Add a new department
     public void addDepartment(Department department) {
         String sql = "INSERT INTO department (name, description) VALUES (?, ?)";

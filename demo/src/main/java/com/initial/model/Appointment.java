@@ -17,7 +17,7 @@ public class Appointment {
         this.doctorId = doctorId;
         this.patientId = patientId;
     }
-
+    public Appointment(){}
     // Getters and setters for each field
     public long getId() {
         return id;

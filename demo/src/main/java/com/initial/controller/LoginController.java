@@ -16,7 +16,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.scene.image.ImageView;
-import java.net.URL;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -114,6 +113,7 @@ private void showAlert(String title, String message, Alert.AlertType type) {
     alert.setContentText(message);
     alert.showAndWait();
 }
+
   
 
 }

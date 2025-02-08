@@ -108,7 +108,7 @@ public class DoctorService {
         
         return doctor;
     }
-    public List<Doctor> getDoctorsByDepartment(Long departmentId) {
+    public List<Doctor> getDoctorsByDepartment(int departmentId) {
         List<Doctor> doctors = new ArrayList<>();
         String sql = "SELECT * FROM Doctor WHERE department_id = ?";
     

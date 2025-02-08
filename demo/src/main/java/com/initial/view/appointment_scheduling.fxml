@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns="http://javafx.com/javafx/17" 
+      xmlns:fx="http://javafx.com/fxml/1" 
+      fx:controller="com.initial.controller.AppointmentSchedulingController"
+      stylesheets="@appointment_scheduling.css">
+
+    <!-- Navigation Bar -->
+    <HBox styleClass="navbar">
+        <Button text="← Back" onAction="#navigateBack" styleClass="back-button"/>
+        <Label fx:id="doctorNameLabel" styleClass="navbar-title"/>
+    </HBox>
+
+    <!-- Main Content -->
+    <VBox styleClass="content-container">
+        <!-- Date Picker -->
+        <HBox styleClass="date-picker-container">
+            <Label text="Select Date:" styleClass="section-label"/>
+            <DatePicker fx:id="datePicker" onAction="#onDateSelected"/>
+        </HBox>
+
+        <!-- Time Slots -->
+        <Label text="Available Time Slots:" styleClass="section-label"/>
+        <FlowPane fx:id="timeSlotsContainer" styleClass="time-slots-container"/>
+
+        <!-- Status Message -->
+        <Label fx:id="statusLabel" styleClass="status-label"/>
+    </VBox>
+
+</VBox>

@@ -5,20 +5,21 @@
 
 <VBox xmlns="http://javafx.com/javafx/17" 
       xmlns:fx="http://javafx.com/fxml/1" 
-      fx:controller="com.initial.controller.DepartmentListController"
-      stylesheets="@patient.css">
+      fx:controller="com.initial.controller.DoctorListController"
+      stylesheets="@doctorBD.css">
 
     <!-- Navigation Bar -->
     <HBox styleClass="navbar">
-        <Button text="Hospital Departments" styleClass="navbar-brand" onAction="#navigateTodepartemnt"/>
+        <Button text="← Back" onAction="#navigateBack" styleClass="back-button"/>
+        <Label fx:id="departmentNameLabel" styleClass="navbar-title"/>
         <Region HBox.hgrow="ALWAYS"/>
         <Button text="About Us" onAction="#navigateToAboutUs" styleClass="nav-button"/>
         <Button text="My Appointments" onAction="#navigateToAppointments" styleClass="nav-button"/>
     </HBox>
 
-    <!-- Departments Container -->
+    <!-- Doctors Container -->
     <ScrollPane fitToWidth="true" styleClass="content-area">
-        <FlowPane fx:id="departmentsContainer" 
+        <FlowPane fx:id="doctorsContainer" 
                   hgap="20" 
                   vgap="20" 
                   prefWrapLength="900">
